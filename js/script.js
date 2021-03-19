@@ -21,4 +21,23 @@ console.log(ageNumb);
 var ticketPrices = 0.21;
 
 var ticketTotalPrices = kilometresNumb * ticketPrices;
+var newTicketTotalPrices = ticketTotalPrices.toFixed(2);
 console.log(ticketTotalPrices);
+
+// Ottenuto il prezzo del Biglietto , diamo la possibilità all'Utente di ottenere uno sconto se soddisfa determinati requisiti, e poi stampiamo il tutto
+var ticketMinors;
+var ticketSenior;
+
+if( age < 18) {
+    ticketMinors = ticketTotalPrices - (ticketTotalPrices * 20 / 100);
+    var newTicketMinors = ticketMinors.toFixed(2);
+    console.log(newTicketMinors);
+    document.getElementById('ticket').innerHTML = 'Sei minorenne! Hai ottenuto uno sconto del 20%: ' + newTicketMinors + '€';
+} else if( age > 65) {
+    ticketSenior = ticketTotalPrices - (ticketTotalPrices * 40 / 100);
+    var newTicketSenior = ticketSenior.toFixed(2);
+    console.log(newTicketSenior);
+    document.getElementById('ticket').innerHTML = 'Abbiamo rispetto per gli over 65, sul suo biglietto verrà applicato uno sconto del 40%: ' + newTicketSenior + '€';
+} else {
+    document.getElementById('ticket').innerHTML = 'Purtroppo, non hai diritto ad alcuno sconto :( :' + newTicketTotalPrices + '€';
+}
